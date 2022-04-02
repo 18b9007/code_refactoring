@@ -1,4 +1,4 @@
-# Creation Method to replace using multiple Constructors
+# Creation Method
 <br>Using numerous constructors can cause problems. In the below example, the last 2 constructors cause a problem where they both have the same attribute signatures such (both are receiving an int).
 
 ```Java
@@ -34,7 +34,7 @@ public class FootballPlayer {
 }
 ```
 Solution: Creation Method
-<br>Solution: Instead of creating multiple constructors for different types of players, a single catch all constructor is created with all the player properties.
+<br>Instead of creating multiple constructors for different types of players, a single catch all constructor is created with all the player properties.
 <br>Then when creating a specific type of plater (e.g. quarterback QB), only values for the relevant arguments are filled with the rest being 0.
 
 ```Java

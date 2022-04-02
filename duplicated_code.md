@@ -135,7 +135,8 @@ public class FootballPlayer2 {
 }
 ```
 
-The solution to eliminate these repetitive constructors is to Chain them. Creating a general purpose instructor for all the general/recurring football player properties. This results in less constructors overall to work with.
+Solution: Chain constructors using a general purpose constructor
+<br>The general purpose constructor catches all the football player properties available. Then when creating constructors for specific players, this general purpose constructor would be used and 0 values would be passed for properties not relevant to that specific type of player. This results in less constructors overall to work with.
 
 ```Java
 public class FootballPlayer2 {
@@ -152,7 +153,7 @@ public class FootballPlayer2 {
 	public int getRepsBenchPress() { return repsBenchPress; }
 	public double get60YdDash() { return sixtyYardDash; }
 
-
+    // General purpose constructor	
     public FootballPlayer2(String playerName, String college, 
 			double fortyYardDash, int repsBenchPress, double sixtyYardDash){
 		
@@ -166,6 +167,7 @@ public class FootballPlayer2 {
 
     public FootballPlayer2(String playerName, String college, 
 			double fortyYardDash, int repsBenchPress){
+		// General purpose constructor is called but passing 0.0 to sixtyYardDash, as that is not relevant to this specific constructor
 		this(playerName, college, fortyYardDash, repsBenchPress, 0.0);
 	}
 	

@@ -35,7 +35,7 @@ public class FootballPlayer {
 ```
 Solution: Creation Method
 <br>Instead of creating multiple constructors for different types of players, a single catch all constructor is created with all the player properties.
-<br>Then when creating a specific type of plater (e.g. quarterback QB), only values for the relevant arguments are filled with the rest being 0.
+<br>Then when creating a specific type of player (e.g. quarterback QB), only values for the relevant arguments are filled with the rest being 0.
 
 ```Java
 public class FootballPlayer {
@@ -136,7 +136,7 @@ public class FootballPlayer2 {
 ```
 
 Solution: Chain constructors using a general purpose constructor
-<br>The general purpose constructor catches all the football player properties available. Then when creating constructors for specific players, this general purpose constructor would be used and 0 values would be passed for properties not relevant to that specific type of player. This results in less constructors overall to work with.
+<br>The general purpose constructor catches all the football player properties available. Then when creating constructors for specific players, this general purpose constructor would be used and 0 values would be passed for properties not relevant to other constructors. This results in less constructors overall to work with.
 
 ```Java
 public class FootballPlayer2 {

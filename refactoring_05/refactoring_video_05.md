@@ -1,64 +1,6 @@
-# Video 5: ...
-Create Athelete class with Gold, Silver, Brinze subclasses for winners
-Once an Athelete receives  medal, no other Athletes can be assigned to that medal subclass
-No conditional statements allowed
-Replace constructors with Factory
-
-Given initial Customer2.java class:
-
-```Java
-public abstract class Customer2 {
-	
-	private String custRating;
-	static final int PREMIER = 2;
-	static final int VALUED = 1;
-	static final int DEADBEAT = 0;
-	
-	public String getCustRating(){ return custRating; }
-	
-	public void setCustRating(String custRating) { this.custRating = custRating; }
-
-    public static void main(String[] args){
-		
-		CustomerFactory customerFactory  = new CustomerFactory();
-		Customer2 goodCustomer = customerFactory.getCustomer(PREMIER);
-		System.out.println("Customer Rating: " + goodCustomer.getCustRating());
-    }
-}
-
-class Premier extends Customer2{
-	Premier(){ setCustRating("Premier Customer"); }	
-}
-
-class Valued extends Customer2{
-	Valued(){ setCustRating("Valued Customer"); }	
-}
-
-class Deadbeat extends Customer2{
-	Deadbeat(){ setCustRating("Deadbeat Customer"); }	
-}
-
-class CustomerFactory{
-	
-	public Customer2 getCustomer(int custType){
-		
-		switch (custType)
-        {
-            case 2:
-            return new Premier();
-            case 1:
-			return new Valued();
-            case 0:
-            return new Deadbeat();
-            default:
-			throw new IllegalArgumentException("Invalid Customer Type");
-		}
-	}
-}
-```
-
-Given by the challenge that no conditionals should be used, but switches were used. So solution to that below version:
-
+# Video 5: Factory Method to replace constructors
+Customer2.java and Athlete.java demosntrates the use of factory methods to replace constructors.
+## Customer2.java
 ```Java
 public abstract class Customer2 {
 	
@@ -104,9 +46,12 @@ class CustomerFactory{
 	}
 }
 ```
-
-Make Athlete.java based on the challenge given:
-
+## Athlete.java
+Athelete.java was created under the below conditions:
+<br>- Athlete class, Medal subclasses (Gold, Silver, Bronze) and Winner subclass
+<br>- Once an Athelete receives a medal, no other Athletes can be assigned to that medal subclass
+<br>- No conditional statements are to be used (e.g. switches)
+<br><br>Athlete.java:
 ```Java
 import java.lang.reflect.Method;
 
@@ -140,7 +85,6 @@ class GoldWinner extends Athlete{
 	}
 }
 
-// Silver and Bronze subclasses is the exact same as Gold
 class SilverWinner extends Athlete{
 	private static SilverWinner silverAthlete = null;
 	
@@ -171,7 +115,6 @@ class BronzeWinner extends Athlete{
 	}
 }
 
-// Next is medal factory to spit out the right subclass based on the subclass asked for
 class MedalFactory{
 	
 	public Athlete getMedal(String medalType, String athleteName){

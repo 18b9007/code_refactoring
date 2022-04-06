@@ -1,10 +1,7 @@
-# Video 2: How to Extract Methods, Working with Local Variables and Temps
+# Video 2: Extract Methods, Working with Local Variables and Temps
 
-Extracting a method:
-Take a busy block of code and stick it in a method rather than having to make that block of code over and over
-<br>Method should have descriptive name
-
-Given a FootballPlayer class
+## Extracting a method
+Given a FootballPlayer class:
 ```Java
 public class FootballPlayer{
 
@@ -20,7 +17,7 @@ public class FootballPlayer{
 }
 ```
 
-And given the below class that runs with the help of above class. Produces FB player name and their avg 40 yard dash time
+And given the below class that runs with the help of above class. Produces football player name and their average 40 yard dash time
 ```Java
 import java.util.ArrayList;
 
@@ -82,8 +79,7 @@ public class FootballPlayer40YardDashInfo {
 }
 ```
 
-The long printPlayerInfo method is broken down into separate small methods (printTitles, printCharMultiTimes and printPlayersWith40Avg), all short and easy to understand resulting in the a cleaner and more manageable printPlayerInfo.
-
+The long printPlayerInfo method can extracted into separate smaller methods (printTitles, printCharMultiTimes and printPlayersWith40Avg), resulting in a cleaner and more manageable printPlayerInfo.
 ```Java
 import java.util.ArrayList;
 
@@ -147,7 +143,7 @@ public class FootballPlayer40YardDashInfo {
 If the code is already as clear as a method, then there is no need to extract it.
 
 ## Working with local variables
-Giveen a 7-line code using the local variable (double average):
+Given a 7-line code which uses local variable:
 ```Java
 double average 0.0;
 double[] dashTimes = {4.36, 4.39, 4.41};
@@ -175,10 +171,7 @@ public static double getAvgDashTime(double[] dashTimes){
 
 ## Working with Temps
 A temp should be gotten rid of if it's only used once and doesn't add to understanding of the code, and if it's just there to hold the value to an expression.
-<br>Solution: replace Temp with a Query
-
-<br><br>Given below code and the temp is avgDashTime:
-
+<br>Solution: replace Temp with a Query. Given below code and the temp is avgDashTime:
 ```Java
 double avgDashTime = totalDashTimes / totalDashes;
 

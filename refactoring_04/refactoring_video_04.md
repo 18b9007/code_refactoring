@@ -1,10 +1,10 @@
 # Video 4: Extracting Methods, Fields, Classes - Converting primitive/simple types into objects
 
 Given Customer.java, the Customer class is initially rather lengthy and has many responsibilities.
-<br>Some of the primitives in the class can be extracted and grouped together to form a new class. In this case:
-<br>- street, city, state and postalCode primitive data types can be extracted from Customer class and grouped to make an Address class.
-<br>- primitive data type birthDay can also be extracted to form a Birthday object.
-<br>Doing this lessens the responsibility of one class and lessens the overall use of accessor methods (in the print statements) which can be hard to read.
+<br>Some of the primitives in the class can be extracted and grouped together to form their own class and object. In this case:
+<br>- street, city, state and postalCode can be extracted and grouped to make an Address object,
+<br>- birthDay can be extracted to form a Birthday object.
+<br>Doing this lessens the responsibility of one class and lessens the overall use of accessor methods (mainly used in the print statements) which can be hard to read.
 <br><br>Customer.java before extraction:
 
 ```Java
@@ -66,7 +66,7 @@ public class Customer {
 }
 ```
 
-Customer.java after extraction + print statements
+Customer.java after extraction + print statements:
 
 ```Java
 public class Customer {

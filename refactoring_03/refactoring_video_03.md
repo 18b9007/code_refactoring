@@ -1,8 +1,8 @@
-# Video 3: ...
-
-Given two classes, Product.java and given a Store.java that executes with the help of Product
-<br>Product.java initial version
-
+# Video 3: Complex Conditioning Statements and other expressions
+Given the class Product.java that is required to run Store.java, which simply returns the total cost, cost per product and savings per product based on the number of Pizzas.
+## Product.java
+The initial Product class, the bad smell lies in the conditional statement in getTotalCost(). The expression is complicated and can be made more understandable by saving the conditionals into referrable variables i.e. Explaining Variables.
+<br>Product.java with bad smell:
 ```Java
 public class Product {
 
@@ -45,50 +45,8 @@ public class Product {
 }
 ```
 
-Store.java initial version
-<br>This class Simply shows the different Total cost, cost per product and savings per product based on the number of Pizzas.
+Product.java after applying Explaining Variables:
 
-```Java
-import java.util.ArrayList;
-
-public class Store {
-	
-	public ArrayList<Product> theProducts = new ArrayList<Product>();
-	
-	public void addAProduct(Product newProduct){
-		theProducts.add(newProduct);
-	}
-	
-	public void getCostOfProducts(){
-		
-		for(Product product : theProducts){
-			
-			System.out.println("Total cost for " + product.getQuantity() + " " + product.getName() + "s is $" + product.getTotalCost());
-			
-			System.out.println("Cost per product " + product.getTotalCost() / product.getQuantity());
-			
-			System.out.println("Savings per product " + ((product.getPrice() + product.getShippingCost()) - (product.getTotalCost() / product.getQuantity())) + "\n");
-		}
-	}
-	
-	public static void main(String[] args){
-		
-		Store cornerStore = new Store();
-		
-		cornerStore.addAProduct(new Product("Pizza", 10.00, 1.00, 52));
-		
-		cornerStore.addAProduct(new Product("Pizza", 10.00, 1.00, 26));
-		
-		cornerStore.addAProduct(new Product("Pizza", 10.00, 1.00, 10));
-		
-		cornerStore.getCostOfProducts();
-	}
-}
-```
-
-The whole if else block in getTotalCost is a bad code. What we can do with it
-remove the chunk
-Use Explaining Variables - used whenever we have complicated expressions, make them make more sense by SAVING the conditionals into a referrable variables. Store.java will run and still give same results
 
 ```Java
 public class Product {
@@ -127,7 +85,6 @@ public class Product {
         
         else if(over10Products) 
         { quantityDiscount = .05; }
-
 		
 		double discount = ((quantity - 1) * quantityDiscount) * price;
 		
@@ -135,9 +92,48 @@ public class Product {
 	}
 }
 ```
+## Store.java
+In the initial Store.java, the print statements in getCostOfProducts() is rather complicated and lengthy with multiple getters being used. Instead, they can be replaced with Explaining Variables that have more descriptive names than using getters. This again makes the core easily made sense of.
+<br>Store.java with bad smell:
 
-Now for Store.java, the getCostofProducts print statements are pretty long and complicated with all the getters
-Can also use Explaining variables here, for complicated calculation. It still runs normally after change
+```Java
+import java.util.ArrayList;
+
+public class Store {
+	
+	public ArrayList<Product> theProducts = new ArrayList<Product>();
+	
+	public void addAProduct(Product newProduct){
+		theProducts.add(newProduct);
+	}
+	
+	public void getCostOfProducts(){
+		
+		for(Product product : theProducts){
+			
+			System.out.println("Total cost for " + product.getQuantity() + " " + product.getName() + "s is $" + product.getTotalCost());
+			
+			System.out.println("Cost per product " + product.getTotalCost() / product.getQuantity());
+			
+			System.out.println("Savings per product " + ((product.getPrice() + product.getShippingCost()) - (product.getTotalCost() / product.getQuantity())) + "\n");
+		}
+	}
+	
+	public static void main(String[] args){
+		
+		Store cornerStore = new Store();
+		
+		cornerStore.addAProduct(new Product("Pizza", 10.00, 1.00, 52));
+		
+		cornerStore.addAProduct(new Product("Pizza", 10.00, 1.00, 26));
+		
+		cornerStore.addAProduct(new Product("Pizza", 10.00, 1.00, 10));
+		
+		cornerStore.getCostOfProducts();
+	}
+}
+```
+Store.java after applying Explaining variables:
 
 ```Java
 import java.util.ArrayList;
@@ -185,23 +181,24 @@ public class Store {
 	}
 }
 ```
-
-Bonus code snippets: Bad practice of assigning multiple values to a temp variable. In the long term people will not understand what it is used for. Solution is to change with descriptive variable names. Example
+## More examples of bad practices: Assigning multiple values to a temp or parameter
+By assigning multiple values to the same temp variable, readers of the code will not be able to easily understand what it is used for at first glance, in the long term. The solution hereis also to change them with descriptive variable names.
+<br>Example of bad practice:
 
 ```Java
 double temp = totalCost / numberOfProducts; // temp = Individual product Cost	
 temp = temp + shipping; // Individual Product Cost + Shipping	
 temp = temp - discount; // (Individual Product Cost + Shipping) - Discount
 ```
-Solution
+<br>After applying descriptive variable/explaining variable:
 
 ```Java
-double indivProductCost = totalCost / numberOfProducts; /
+double indivProductCost = totalCost / numberOfProducts; 
 prodCostAndShipping = indivProductCost + shipping; 
 discountedProductCost = prodCostAndShipping  - discount; 
 ```
 
-This bad practice also appliues to parameters that are passed to variables. They should not be used again and again as such. Should be changed with descriptive names that make things make sense forever
+The above practice also applies to parameters that are passed to variables. These parameters should Not be assigned multiple values as shown below, and should be replaced with explaining variables:
 
 ```Java
 public double getTotPrice(double quantity, double price, double shippingCost, double discount) {

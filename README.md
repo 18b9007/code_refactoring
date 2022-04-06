@@ -1,7 +1,7 @@
 # Code Refactoring - Bad Smells
-Duplicated Code - addressed by [video 01](https://github.com/18b9007/code_refactoring/tree/main/refactoring_01)
-<br>Long Method - addressed by [video 02](https://github.com/18b9007/code_refactoring/tree/main/refactoring_02)
-<br>Complex Conditioning Statements
+Duplicated Code - [video 01](https://github.com/18b9007/code_refactoring/tree/main/refactoring_01)
+<br>Long Method - [video 02](https://github.com/18b9007/code_refactoring/tree/main/refactoring_02)
+<br>Complex Conditioning Statements - [video 03](https://github.com/18b9007/code_refactoring/tree/main/refactoring_03)
 <br>Primitive Obsession
 <br>Indecent Exposure
 <br>Solution Sprawl

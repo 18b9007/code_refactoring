@@ -93,7 +93,7 @@ public class Product {
 }
 ```
 ## Store.java
-In the initial Store.java, the print statements in getCostOfProducts() is rather complicated and lengthy with multiple getters being used. Instead, they can be replaced with Explaining Variables that have more descriptive names than using getters. This again makes the core easily made sense of.
+In the initial Store.java, the print statements in getCostOfProducts() is rather complicated and lengthy with multiple getters being used. Instead, they can be replaced with Explaining Variables that have more descriptive names than using getters. This again makes the code more easily made sense of.
 <br>Store.java with bad smell:
 
 ```Java

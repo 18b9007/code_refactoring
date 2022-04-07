@@ -87,7 +87,7 @@ public class FootballPlayer {
 
 # Chain Constructors
 Note that the more constructors we have over time, the more likely it is to cause problem or inconvenience. E.g. Someone may update one constructor and forget to update another.
-<br>Below is an example of a problematic approach (Mutliple constructors created with just slight differences between then)
+<br>Below is an example of a problematic approach (Mutliple constructors created with just slight differences between them)
 
 ```Java
 public class FootballPlayer2 {

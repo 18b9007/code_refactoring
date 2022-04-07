@@ -143,7 +143,7 @@ public class FootballPlayer40YardDashInfo {
 If the code is already as clear as a method, then there is no need to extract it.
 
 ## Working with local variables
-Given a 7-line code which uses local variable:
+Given seven lines of code which uses local variable:
 ```Java
 double average 0.0;
 double[] dashTimes = {4.36, 4.39, 4.41};

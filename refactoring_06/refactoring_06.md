@@ -1,6 +1,6 @@
 # Video 6: Simplifying Conditionals and Replacing them with Polymorphism, or with Strategy Pattern
 
-Given an initial code that charges different amounts based on the bag weight and bag quantity:
+Given an initial code that charges different fees based on the bag weight and bag quantity:
 
 ```Java
 public class TurnConditionalIntoMethods {
@@ -43,7 +43,7 @@ The conditional above simply means:
 <br>- If bag weight 50~70 lbs and there is 1 bag -> $100 if first bag
     > $150 for additional bags
 
-<br><br>The above code has a rather complex conditioning statement that can be simplified to become more readable and easily understood. This was done in 2 steps, where the if statement specifically was modified:
+<br>The above code has a rather complex conditioning statement that can be simplified to become more readable and easily understood. This was done in 2 steps, where the if statement specifically was modified:
 
 <br>First approach:
 <br>Below new lines of code added before the main method:
@@ -63,17 +63,17 @@ Refactored conditional statement:
 
 ```Java
 bagFees = 0;
-		for(int theBag = 0; theBag < numberOfBags; theBag++){
-		
-			if(bagWeight[theBag] < 50)
-			{ bagFees += bagUnder50lbs(theBag); }
+for(int theBag = 0; theBag < numberOfBags; theBag++){
 
-			else if (bagWeight[theBag] < 70)
-			{ bagFees += bag50to70lbs(theBag); }
+	if(bagWeight[theBag] < 50)
+	{ bagFees += bagUnder50lbs(theBag); }
 
-			else
-			{ bagFees += 200; }
-		}
+	else if (bagWeight[theBag] < 70)
+	{ bagFees += bag50to70lbs(theBag); }
+
+	else
+	{ bagFees += 200; }
+}
 ```
 
 Second approach further refactored conditional statement:
@@ -81,15 +81,15 @@ Second approach further refactored conditional statement:
 ```Java
 bagFees = 0;
 		
-		for(int theBag = 0; theBag < numberOfBags; theBag++){
-			
-			if(bagWeight[theBag] < 50)
-			{ bagFees += bagUnder50lbs(theBag); }
-			
-			if(bagWeight[theBag] < 70 && bagWeight[theBag] >= 50) 
-			{ bagFees += bag50to70lbs(theBag); }
-			
-			if(bagWeight[theBag] >= 70)
-			{ bagFees += 200; }
-		}
+for(int theBag = 0; theBag < numberOfBags; theBag++){
+
+	if(bagWeight[theBag] < 50)
+	{ bagFees += bagUnder50lbs(theBag); }
+
+	if(bagWeight[theBag] < 70 && bagWeight[theBag] >= 50) 
+	{ bagFees += bag50to70lbs(theBag); }
+
+	if(bagWeight[theBag] >= 70)
+	{ bagFees += 200; }
+}
 ```
